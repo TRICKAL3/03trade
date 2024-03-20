@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin (BTC) Details</title>
+    <style>
+        /* Your styles for the Bitcoin page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .details-container {
+            margin-top: 20px;
+        }
+
+        .balance {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .buy-sell-withdraw-buttons {
+            margin-bottom: 20px;
+        }
+
+        .buy-button,
+        .sell-button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .buy-button:hover,
+        .sell-button:hover {
+            background-color: #45a049;
+        }
+
+        .trade-history {
+            margin-bottom: 20px;
+        }
+
+        .trade-history-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .trade-history-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .trade-history-list li {
+            border-bottom: 1px solid #4CAF50;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .price-behavior {
+            margin-bottom: 20px;
+        }
+
+        .graph-container {
+            height: 300px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        /* Add more styles based on your design */
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Bitcoin (BTC) Details</h1>
+
+    <div class="details-container">
+        <p class="balance">Balance: 0 BTC</p>
+
+        <!-- Buy , Sell and withdraw Buttons -->
+        <div class="buy-sell-withdraw-buttons">
+            <button class="buy-button" onclick="redirectTo('buyBTC.html')">Buy BTC</button>
+            <!-- (Other buttons remain unchanged) -->
+        </div>
+
+        <!-- Trade History Section -->
+        <div class="trade-history">
+            <p class="trade-history-title">Trade History (in MWK)</p>
+            <ul class="trade-history-list" id="trade-history-list">
+                <li>
+                    <span>Date & Time</span>
+                    <span>Action</span>
+                    <span>Amount</span>
+                    <span>Price</span>
+                </li>
+                <!-- Placeholder trade history data -->
+                <li>
+                    <span>No history available yet</span>
+                </li>
+                <!-- Add more trade history items as needed -->
+            </ul>
+        </div>
+
+        <!-- Price Behavior Section -->
+        <div class="price-behavior">
+            <p class="trade-history-title">Price Behavior (Weekly)</p>
+            <canvas id="priceChart"></canvas>
+        </div>
+
+        <!-- Section for highest and lowest prices -->
+        <div class="price-summary">
+            <p>Highest Price: 90,000 MWK</p>
+            <p>Lowest Price: 20,000 MWK</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to update trade history
+            function updateTradeHistory(action, amount, price) {
+                const tradeHistoryList = document.getElementById('trade-history-list');
+                const date = new Date().toLocaleString();
+
+                const newItem = document.createElement('li');
+                newItem.innerHTML = `
+                    <span>${date}</span>
+                    <span>${action}</span>
+                    <span>${amount.toFixed(8)} BTC</span>
+                    <span>${price.toFixed(2)} MWK</span>
+                `;
+
+                // Insert the new trade history at the beginning of the list
+                tradeHistoryList.insertBefore(newItem, tradeHistoryList.firstChild);
+            }
+
+            // Function to update the balance
+            function updateBalance(newBalance) {
+                const balanceElement = document.querySelector('.balance');
+                balanceElement.textContent = `Balance: ${newBalance.toFixed(8)} BTC`;
+            }
+
+            // Check if there are query parameters indicating a recent buy/sell action
+            const queryParams = getQueryParams();
+
+            if (queryParams.action === 'buy') {
+                const buyAmount = parseFloat(queryParams.amount);
+                const totalPrice = parseFloat(queryParams.totalPrice);
+                // Update the balance (simulating a deposit)
+                balance += buyAmount;
+
+                // Update the displayed balance
+                updateBalance(balance);
+
+                // Update the trade history
+                updateTradeHistory('Buy', buyAmount, totalPrice);
+            } else if (queryParams.action === 'sell') {
+                // Add similar logic for selling
+            }
+
+            // Function to get query parameters from the URL
+            function getQueryParams() {
+                const queryParams = {};
+                const queryString = window.location.search.substring(1);
+                const pairs = queryString.split("&");
+
+                for (const pair of pairs) {
+                    const [key, value] = pair.split("=");
+                    queryParams[key] = decodeURIComponent(value);
+                }
+
+                return queryParams;
+            }
+        });
+
+        // Function to redirect to a page
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

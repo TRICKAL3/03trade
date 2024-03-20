@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethereum (ETH) Details</title>
+    <style>
+        /* Your styles for the Ethereum page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .details-container {
+            margin-top: 20px;
+        }
+
+        .balance {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .buy-sell-withdraw-buttons {
+            margin-bottom: 20px;
+        }
+
+        .buy-button,
+        .sell-button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .buy-button:hover,
+        .sell-button:hover {
+            background-color: #45a049;
+        }
+
+        .trade-history {
+            margin-bottom: 20px;
+        }
+
+        .trade-history-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .trade-history-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .trade-history-list li {
+            border-bottom: 1px solid #4CAF50;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .price-behavior {
+            margin-bottom: 20px;
+        }
+
+        .graph-container {
+            height: 300px;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        /* Add more styles based on your design */
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Ethereum (ETH) Details</h1>
+
+    <div class="details-container">
+        <p class="balance">Balance: 2 ETH</p>
+
+        <!-- Buy, Sell, and Withdraw Buttons -->
+        <div class="buy-sell-withdraw-buttons">
+            <button class="buy-button" onclick="redirectTo('buyETH.html')">Buy ETH</button>
+            <button class="sell-button" onclick="redirectTo('sellETH.html')">Sell ETH</button>
+            <button class="withdraw-button" onclick="redirectTo('withdrawETH.html')">Withdraw ETH</button>
+        </div>
+
+        <!-- Trade History Section -->
+        <div class="trade-history">
+            <p class="trade-history-title">Trade History (in MWK)</p>
+            <ul class="trade-history-list">
+                <li>
+                    <span>Date & Time</span>
+                    <span>Action</span>
+                    <span>Amount</span>
+                    <span>Price</span>
+                </li>
+                <!-- Placeholder trade history data -->
+                <li>
+                    <span>2023-01-15 10:30 AM</span>
+                    <span>Buy</span>
+                    <span>1 ETH</span>
+                    <span>3500 MWK</span>
+                </li>
+                <li>
+                    <span>2023-01-14 02:45 PM</span>
+                    <span>Sell</span>
+                    <span>0.5 ETH</span>
+                    <span>4000 MWK</span>
+                </li>
+                <!-- Add more trade history items as needed -->
+            </ul>
+        </div>
+
+        <!-- Price Behavior Section -->
+        <div class="price-behavior">
+            <p class="trade-history-title">Price Behavior (Weekly)</p>
+            <canvas id="priceChartETH"></canvas>
+        </div>
+
+        <!-- Section for highest and lowest prices -->
+        <div class="price-summary">
+            <p>Highest Price: 800 MWK</p>
+            <p>Lowest Price: 3000 MWK</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Data for the line chart
+            var priceData = {
+                labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                datasets: [{
+                    label: 'Ethereum Price (MWK)',
+                    data: [3000, 3500, 4500, 4000, 8500, 80000, 7500],
+                    borderColor: '#4CAF50',
+                    backgroundColor: 'transparent',
+                    pointRadius: 5,
+                    pointBackgroundColor: '#4CAF50',
+                    borderWidth: 2
+                }]
+            };
+
+            // Chart configuration
+            var priceConfig = {
+                type: 'line',
+                data: priceData,
+                options: {
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Days of the Week'
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Price (MWK)'
+                            }
+                        }
+                    }
+                }
+            };
+
+            // Create the line chart
+            var priceChartETH = new Chart(document.getElementById('priceChartETH'), priceConfig);
+        });
+
+        // Function to redirect to a page
+        function redirectTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>

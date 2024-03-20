@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Ethereum (ETH)</title>
+    <style>
+        /* Your styles for the Buy ETH page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .buy-options,
+        .receive-options {
+            margin-top: 20px;
+        }
+
+        .balance,
+        .market-price {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .buy-input,
+        .receive-input {
+            margin-bottom: 10px;
+        }
+
+        .buy-amount,
+        .buy-crypto,
+        .receive-wallet-address {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .receive-qr-code {
+            margin-top: 10px;
+        }
+
+        .receive-button,
+        .buy-button,
+        .copy-button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .buy-button:hover,
+        .receive-button:hover,
+        .copy-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Tooltip */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Buy Ethereum (ETH)</h1>
+
+    <!-- Display the balance -->
+    <p class="balance">Balance: 2 ETH</p>
+
+    <!-- Display the market price -->
+    <p class="market-price">Market Price: 8000 MWK</p>
+
+    <!-- Buying Options Section -->
+    <div class="buy-options">
+        <div class="buy-input">
+            <label for="buy-amount">Amount (ETH):</label>
+            <input type="text" id="buy-amount" class="buy-amount" placeholder="Enter amount">
+        </div>
+
+        <div class="buy-input">
+            <label for="buy-crypto">Number of ETH:</label>
+            <input type="text" id="buy-crypto" class="buy-crypto" placeholder="Enter number of ETH">
+        </div>
+
+        <!-- Buy Button -->
+        <button class="buy-button" onclick="buyETH()">Buy ETH</button>
+    </div>
+
+    <!-- Receiving Options Section -->
+    <div class="receive-options">
+        <div class="receive-input">
+            <label for="receive-wallet-address">Wallet Address (ETH Network):</label>
+            <div class="tooltip">
+                <input type="text" id="receive-wallet-address" class="receive-wallet-address" value="gtETh&654009h87dsus" readonly>
+                <span class="tooltiptext">Copy to clipboard</span>
+            </div>
+            <!-- Copy Button -->
+            <button class="copy-button" onclick="copyWalletAddress()">Copy</button>
+        </div>
+
+        <!-- QR Code Placeholder (You can replace this with a real QR code generator) -->
+        <div class="receive-qr-code">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?data=gtETh&654009h87dsus&size=150x150" alt="QR Code">
+        </div>
+
+        <!-- Receive Button -->
+        <button class="receive-button" onclick="receiveETH()">Receive ETH</button>
+    </div>
+
+    <script>
+        // Function to simulate buying ETH
+        function buyETH() {
+            // You can customize this function based on your requirements
+            alert('ETH Bought!');
+        }
+
+        // Function to simulate receiving ETH
+        function receiveETH() {
+            // You can customize this function based on your requirements
+            alert('ETH Received!');
+        }
+
+        // Function to copy the wallet address to the clipboard
+        function copyWalletAddress() {
+            var walletAddressInput = document.getElementById('receive-wallet-address');
+            walletAddressInput.select();
+            document.execCommand('copy');
+            alert('Wallet address copied to clipboard!');
+        }
+    </script>
+</body>
+</html>

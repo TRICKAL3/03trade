@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Withdraw Ethereum (ETH)</title>
+    <style>
+        /* Your styles for the Withdraw ETH page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .withdraw-options {
+            margin-top: 20px;
+        }
+
+        .balance {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .withdraw-input {
+            margin-bottom: 10px;
+        }
+
+        .withdraw-crypto,
+        .wallet-address {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .withdraw-button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .withdraw-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Withdraw Ethereum (ETH)</h1>
+
+    <!-- Display the balance -->
+    <p class="balance">Balance: 2 ETH</p>
+
+    <!-- Withdraw Options Section -->
+    <div class="withdraw-options">
+        <!-- Choose Network Section -->
+        <div class="withdraw-input">
+            <label for="withdraw-network">Network:</label>
+            <input type="text" id="withdraw-network" class="withdraw-network" value="ETH Network" readonly>
+        </div>
+
+        <!-- Amount to Withdraw Section -->
+        <div class="withdraw-input">
+            <label for="withdraw-crypto">Amount to Withdraw (ETH):</label>
+            <input type="text" id="withdraw-crypto" class="withdraw-crypto" placeholder="Enter amount to withdraw">
+        </div>
+
+        <!-- Wallet Address Section -->
+        <div class="withdraw-input">
+            <label for="wallet-address">Wallet Address:</label>
+            <input type="text" id="wallet-address" class="wallet-address" placeholder="Paste wallet address">
+        </div>
+
+        <!-- Withdraw Button -->
+        <button class="withdraw-button" onclick="withdrawETH()">Withdraw ETH</button>
+    </div>
+
+    <script>
+        // Function to simulate withdrawing ETH
+        function withdrawETH() {
+            // You can customize this function based on your requirements
+            alert('ETH Withdrawn!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Ethereum (ETH)</title>
+    <style>
+        /* Your styles for the Sell ETH page */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .sell-options {
+            margin-top: 20px;
+        }
+
+        .balance,
+        .market-price {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .sell-input {
+            margin-bottom: 10px;
+        }
+
+        .sell-crypto,
+        .receive-amount {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .receive-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            z-index: 2;
+        }
+
+        .popup-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .popup-close {
+            cursor: pointer;
+            margin-top: 10px;
+            color: #4CAF50;
+        }
+
+        .sell-button,
+        .confirm-sell-button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .sell-button:hover,
+        .confirm-sell-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sell Ethereum (ETH)</h1>
+
+    <!-- Display the balance -->
+    <p class="balance">Balance: 2 ETH</p>
+
+    <!-- Display the market price -->
+    <p class="market-price">Market Price: 76,000,000 MWK</p>
+
+    <!-- Selling Options Section -->
+    <div class="sell-options">
+        <div class="sell-input">
+            <label for="sell-crypto">Number of ETH to Sell:</label>
+            <input type="text" id="sell-crypto" class="sell-crypto" placeholder="Enter number of ETH">
+        </div>
+
+        <!-- Sell Button -->
+        <button class="sell-button" onclick="openReceivePopup()">Sell ETH</button>
+    </div>
+
+    <!-- Receive Amount Popup -->
+    <div id="receive-popup" class="receive-popup">
+        <div class="popup-content">
+            <p class="receive-amount">You will receive: 38,000,000 MWK</p>
+            <button class="confirm-sell-button" onclick="confirmSell()">Confirm Sell</button>
+            <div class="popup-close" onclick="closeReceivePopup()">Close</div>
+        </div>
+    </div>
+
+    <script>
+        // Function to open the receive amount popup
+        function openReceivePopup() {
+            var receivePopup = document.getElementById('receive-popup');
+            receivePopup.style.display = 'block';
+        }
+
+        // Function to close the receive amount popup
+        function closeReceivePopup() {
+            var receivePopup = document.getElementById('receive-popup');
+            receivePopup.style.display = 'none';
+        }
+
+        // Function to simulate confirming the sell
+        function confirmSell() {
+            // You can customize this function based on your requirements
+            alert('ETH Sold!');
+            closeReceivePopup();
+        }
+    </script>
+</body>
+</html>

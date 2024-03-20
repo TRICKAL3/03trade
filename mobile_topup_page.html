@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Top-Up</title>
+    <style>
+        /* Your styles for the mobile top-up page */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+        }
+
+        .topup-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .topup-form input[type="text"],
+        .topup-form select,
+        .topup-form input[type="number"],
+        .topup-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .topup-form input[type="submit"] {
+            cursor: pointer;
+            background-color: #4CAF50;
+            transition: background-color 0.3s ease;
+        }
+
+        .topup-form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mobile Top-Up</h1>
+
+    <!-- Top-Up Form -->
+    <form class="topup-form">
+        <label for="network-provider">Network Provider:</label>
+        <select id="network-provider" name="network-provider">
+            <option value="airtel">Airtel</option>
+            <option value="tnm">TNM</option>
+        </select>
+
+        <label for="phone-number">Phone Number:</label>
+        <input type="text" id="phone-number" name="phone-number" placeholder="Enter phone number">
+
+        <label for="topup-amount">Top-Up Amount:</label>
+        <input type="number" id="topup-amount" name="topup-amount" placeholder="Enter top-up amount">
+
+        <input type="submit" value="Top Up">
+    </form>
+
+</body>
+</html>

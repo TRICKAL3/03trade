@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit - 0.3TRADE</title>
+    <style>
+        /* Add your styling for the deposit page here */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+        }
+
+        header {
+            background-color: #111;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-right: 20px;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        select {
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .credit-card-details {
+            display: none; /* Initially hide credit card details */
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="title">0.3TRADE</div>
+        </div>
+        <!-- You can add a navigation link or other header content as needed -->
+    </header>
+    <main>
+        <h2>Deposit Funds</h2>
+        <form id="depositForm">
+            <label for="amount">Amount (MWK):</label>
+            <input type="number" id="amount" name="amount" required>
+
+            <label for="payment-method">Select Payment Method:</label>
+            <select id="payment-method" name="payment-method" onchange="toggleCreditCardDetails()" required>
+                <option value="bank">Bank Transfer</option>
+                <option value="mobile-money">Mobile Money</option>
+                <option value="credit-card">Credit Card</option>
+                <!-- Add other payment method options as needed -->
+            </select>
+
+            <!-- Mobile Money Options -->
+            <div id="mobileMoneyOptions" style="display:none;">
+                <label for="mobile-money-provider">Select Mobile Money Provider:</label>
+                <select id="mobile-money-provider" name="mobile-money-provider">
+                    <option value="airtel-money">Airtel Money</option>
+                    <option value="tnm-mpamba">TNM Mpamba</option>
+                </select>
+            </div>
+
+            <!-- Credit Card Details -->
+            <div id="creditCardDetails" class="credit-card-details">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card-number" placeholder="Enter your card number">
+
+                <label for="cvc">CVC:</label>
+                <input type="text" id="cvc" name="cvc" placeholder="Enter your CVC">
+
+                <label for="expire-date">Expiration Date (MM/YYYY):</label>
+                <input type="text" id="expire-date" name="expire-date" placeholder="Enter expiration date">
+            </div>
+
+            <button type="button" onclick="submitDeposit()">Submit Deposit</button>
+        </form>
+    </main>
+
+    <script>
+        function toggleCreditCardDetails() {
+            const paymentMethod = document.getElementById("payment-method").value;
+            const mobileMoneyOptions = document.getElementById("mobileMoneyOptions");
+            const creditCardDetails = document.getElementById("creditCardDetails");
+
+            if (paymentMethod === "mobile-money") {
+                mobileMoneyOptions.style.display = "block";
+                creditCardDetails.style.display = "none";
+            } else if (paymentMethod === "credit-card") {
+                mobileMoneyOptions.style.display = "none";
+                creditCardDetails.style.display = "block";
+            } else {
+                mobileMoneyOptions.style.display = "none";
+                creditCardDetails.style.display = "none";
+            }
+        }
+
+        function submitDeposit() {
+    // Retrieve the amount and payment method
+    const amount = parseFloat(document.getElementById("amount").value);
+    const paymentMethod = document.getElementById("payment-method").value;
+
+    // Update the wallet balance
+    const currentBalance = parseFloat(localStorage.getItem('walletBalance')) || 0;
+    const newBalance = currentBalance + amount;
+    localStorage.setItem('walletBalance', newBalance.toFixed(2));
+
+    // (This is a simulated success alert, replace it with your actual logic)
+    alert(`Deposit of ${amount} MWK via ${paymentMethod} successful!`);
+
+    // Redirect to the welcome page without specifying the amount parameter
+    window.location.href = 'welcome-page.html';
+}
+
+
+
+        
+    </script>
+</body>
+</html>

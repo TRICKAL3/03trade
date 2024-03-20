@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0.3TRADE Platform</title>
+    <style>
+body {
+    margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('image/R.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        header {
+            background-color: #111;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-right: 20px;
+            color: #4CAF50; /* Improved color */
+        }
+
+        .help-button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .help-button:hover {
+            background-color: #45a049;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .welcome-section {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            margin-top: 20px; /* Added margin for separation */
+        }
+
+        .crypto-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('C:/Users/Pc/Desktop/tpay/image/cardano-blockchain-platform.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .welcome-content {
+            max-width: 600px;
+            z-index: 1;
+            color: #fff; /* Improved text color */
+        }
+
+        .welcome-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #4CAF50; /* Improved color */
+        }
+
+        .subheading {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    color: #000; /* Change color to bold black */
+    font-weight: bold; /* Add font-weight for boldness */
+}
+
+        
+
+        .signup-login-section {
+            max-width: 400px;
+            margin: auto;
+            margin-top: 20px;
+            background-color: #333; /* Improved background color */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            color: #4CAF50; /* Improved color */
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #4CAF50; /* Improved border */
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            color: #001f01;
+            text-decoration: none;
+        }
+
+        #login-table {
+            display: none;
+        }
+
+        .blog-section {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .blog-card {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            width: calc(33.333% - 20px);
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: scale(1.05);
+        }
+
+        .blog-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .web-info {
+            margin-top: 50px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .web-info h2 {
+            font-size: 24px;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .web-info p {
+            font-size: 16px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="title">0.3TRADE</div>
+        </div>
+        <a href="#" class="help-button">Help</a>
+    </header>
+    <main>
+        <div class="welcome-section">
+            <div class="crypto-background"></div>
+            <div class="welcome-content">
+                <h1>WELCOME TO 0.3TRADE</h1>
+                <p class="subheading">EXPLORE THE WORLD OF CRYPTOCURRENCY TRADING WITH OUR SECURE AND USER-FRIENDLY PLATFORM.</p>
+            </div>
+        </div>
+        <div class="signup-login-section">
+            <form id="signup-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" id="login-link">Log in</a></p>
+            <div id="login-table">
+                <form id="login-form">
+                    <label for="login-email">Enter Email:</label>
+                    <input type="email" id="login-email" name="login-email" required>
+
+                    <label for="login-password">Enter Password:</label>
+                    <input type="password" id="login-password" name="login-password" required>
+
+                    <button type="submit">Log In</button>
+                </form>
+            </div>
+        </div>
+        
+        </div>
+        <div class="web-info">
+            <h2>About 0.3TRADE</h2>
+            <p>Welcome to 0.3TRADE, your premier platform for secure and seamless cryptocurrency trading in local currencies. We provide a user-friendly experience for enthusiasts and investors looking to explore the world of digital assets.</p>
+            
+            <p>At 0.3TRADE, we understand the importance of trading in local currencies, making crypto accessible to everyone. Our platform ensures a reliable and secure environment for buying, selling, and exchanging cryptocurrencies, tailored to your regional preferences.</p>
+        
+            <p>Key Features:</p>
+            <ul>
+                <li>Trade Cryptocurrencies Locally: Enjoy the convenience of trading in your local currency, eliminating the need for complex currency conversions.</li>
+                <li>Secure Transactions: Our advanced security measures safeguard your transactions and personal information, providing you with peace of mind.</li>
+                <li>User-Friendly Interface: Navigate our intuitive platform with ease, whether you're a seasoned trader or new to the crypto space.</li>
+                <li>Explore a Range of Cryptocurrencies: Discover and trade a diverse selection of cryptocurrencies, staying updated on the latest market trends.</li>
+            </ul>
+        
+            <p>Join us on the journey to explore the exciting world of cryptocurrency trading. Start your trading experience with 0.3TRADE today!</p>
+        </div>
+        
+    </main>
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Your sign-up logic here...
+
+            // Assuming sign-up is successful, store the user's name and login status in localStorage
+// Assuming sign-up is successful, store the user's name, login status, and initial wallet balance in localStorage
+const userName = document.getElementById('name').value;
+localStorage.setItem('userName', userName);
+localStorage.setItem('isLoggedIn', 'true');
+localStorage.setItem('walletBalance', '0');  // Add this line to set the initial balance to 0
+
+// Redirect to another page (welcome-page.html)
+window.location.href = 'welcome-page.html';
+
+        });
+
+        document.getElementById('login-link').addEventListener('click', function() {
+            // Toggle the display of the log-in table
+            var loginTable = document.getElementById('login-table');
+            loginTable.style.display = (loginTable.style.display === 'none' || loginTable.style.display === '') ? 'block' : 'none';
+        });
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Your log-in logic here...
+
+            // Assuming log-in is successful, store the user's name and login status in localStorage
+// Assuming log-in is successful, store the user's name, login status, and initial wallet balance in localStorage
+const userName = 'trickal';  // Replace with the actual user's name
+localStorage.setItem('userName', userName);
+localStorage.setItem('isLoggedIn', 'true');
+localStorage.setItem('walletBalance', '0');  // Add this line to set the initial balance to 0
+
+// Redirect to another page (welcome-page.html)
+window.location.href = 'welcome-page.html';
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to 0.3TRADE</title>
+    <style>
+        /* Your styles for the welcome page */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+        }
+
+        header {
+            background-color: #111;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 24px;
+            margin-right: 20px;
+        }
+
+        .about-button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .about-button:hover {
+            background-color: #45a049;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .user-details {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .wallet-balance {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .wallet-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .wallet-buttons button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .wallet-buttons button:hover {
+            background-color: #45a049;
+        }
+
+        .crypto-wallets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .crypto-wallet {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1 1 calc(33.333% - 20px);
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .crypto-wallet:hover {
+            transform: scale(1.05);
+        }
+
+        .crypto-wallet h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .crypto-wallet p {
+            font-size: 16px;
+            color: #bbb;
+        }
+
+        /* Additional Services Section */
+        .additional-services {
+            margin-top: 40px;
+        }
+
+        .additional-services h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .service {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .service:hover {
+            transform: scale(1.05);
+        }
+
+        .service h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        .service p {
+            font-size: 16px;
+            color: #bbb;
+        }
+
+        .service img {
+            width: 250px; /* Adjust the size of the images */
+            margin-right: 100px; /* Add space between the image and text */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="title">0.3TRADE</div>
+        </div>
+        <a href="#" class="about-button">About</a>
+    </header>
+    <main>
+        <div class="user-details">
+            <p>Welcome, <span id="user-name"></span>!</p>
+        </div>
+        <div id="main-wallet-balance" class="wallet-balance">
+            <!-- Wallet balance will be dynamically updated here -->
+        </div>
+        <div class="wallet-buttons">
+            <button class="redirect-button" onclick="redirectTo('deposit_page.html')">Deposit</button>
+            <button class="redirect-button" onclick="redirectTo('withdraw_page.html')">Withdraw</button>
+            <button class="redirect-button" onclick="redirectTo('send_page.html')">Send</button>
+        </div>
+       <!-- Updated Crypto List -->
+<div class="crypto-wallets">
+    <!-- Bitcoin (BTC) Crypto Wallet -->
+    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('Bitcoin')">
+        <h3>Bitcoin (BTC)</h3>
+    </div>
+
+    <!-- Ethereum (ETH) Crypto Wallet -->
+    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('Ethereum')">
+        <h3>Ethereum (ETH)</h3>
+    </div>
+
+    <!-- Litecoin (LTC) Crypto Wallet -->
+    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('Litecoin')">
+        <h3>Litecoin (LTC)</h3>
+    </div>
+
+    <!-- USD Tether (USDT) Crypto Wallet -->
+    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('USDT')">
+        <h3>USD Tether (USDT)</h3>
+    </div>
+
+    <!-- Cardano (ADA) Crypto Wallet -->
+    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('Cardano')">
+        <h3>Cardano (ADA)</h3>
+    </div>
+
+    <!-- Dogecoin (DOGE) Crypto Wallet -->
+    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('Dogecoin')">
+        <h3>Dogecoin (DOGE)</h3>
+    </div>
+</div>
+
+<!-- Additional Services -->
+<section class="additional-services">
+    <h2>Additional Services</h2>
+    <!-- Gift Cards -->
+    <div class="service" onclick="redirectTo('giftcards_page.html')">
+        <img src="giftcards.webp" alt="Gift Card Icon">
+        <div>
+            <h3>Gift Cards</h3>
+            <p>Buy gift cards for popular stores.</p>
+        </div>
+    </div>
+    <!-- Mobile Top-Up -->
+    <div class="service" onclick="redirectTo('mobile_topup_page.html')">
+        <img src="OIP.jpg" alt="Mobile Top-Up Icon">
+        <div>
+            <h3>Mobile Top-Up</h3>
+            <p>Recharge your mobile phone credit.</p>
+        </div>
+    </div>
+</section>
+    </main>
+
+<script>
+    // Retrieve user name from localStorage
+    const storedUserName = localStorage.getItem('userName');
+
+    // Update the user name in the HTML
+    if (storedUserName) {
+        document.getElementById('user-name').textContent = storedUserName;
+    }
+
+    // Function to redirect to a page with query parameters
+    function redirectTo(page) {
+        window.location.href = page;
+    }
+
+    // Function to redirect to a crypto wallet page
+    function redirectToCryptoWalletPage(wallet) {
+        const walletPage = wallet.toLowerCase() + '_page.html';
+        window.location.href = walletPage;
+    }
+
+    // Function to update wallet balance based on query parameters
+    function updateWalletBalance() {
+        const storedBalance = localStorage.getItem('walletBalance');
+        const currentBalanceElement = document.getElementById('main-wallet-balance');
+
+        if (storedBalance !== null) {
+            currentBalanceElement.textContent = `Main Wallet Balance: ${storedBalance} MWK`;
+        }
+    }
+
+    // Call the function to update wallet balance on page load
+    updateWalletBalance();
+</script>
+
+</body>
+</html>
