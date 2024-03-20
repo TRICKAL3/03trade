@@ -79,13 +79,13 @@
             background-color: #45a049;
         }
 
-        .crypto-wallets {
+        .visual-cards {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
         }
 
-        .crypto-wallet {
+        .visual-card {
             background-color: #333;
             padding: 20px;
             border-radius: 10px;
@@ -96,17 +96,17 @@
             cursor: pointer;
         }
 
-        .crypto-wallet:hover {
+        .visual-card:hover {
             transform: scale(1.05);
         }
 
-        .crypto-wallet h3 {
+        .visual-card h3 {
             font-size: 18px;
             margin-bottom: 10px;
             color: #4CAF50;
         }
 
-        .crypto-wallet p {
+        .visual-card p {
             font-size: 16px;
             color: #bbb;
         }
@@ -172,38 +172,34 @@
             <button class="redirect-button" onclick="redirectTo('withdraw_page.html')">Withdraw</button>
             <button class="redirect-button" onclick="redirectTo('send_page.html')">Send</button>
         </div>
-       <!-- Updated Crypto List -->
-<div class="crypto-wallets">
-    <!-- Bitcoin (BTC) Crypto Wallet -->
-    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('Bitcoin')">
-        <h3>Bitcoin (BTC)</h3>
+     <!-- Updated Visual Cards List -->
+     <div class="visual-cards">
+        <!-- Debit Cards -->
+        <div class="visual-card" onclick="redirectTo('debit_cards_page.html')">
+            <h3>Debit Cards</h3>
+            <p>Explore and purchase debit cards.</p>
+        </div>
+        <!-- Credit Cards -->
+        <div class="visual-card" onclick="redirectTo('credit_cards_page.html')">
+            <h3>Credit Cards</h3>
+            <p>Discover and buy credit cards.</p>
+        </div>
+        <!-- Prepaid Cards -->
+        <div class="visual-card" onclick="redirectTo('prepaid_cards_page.html')">
+            <h3>Prepaid Cards</h3>
+            <p>View and acquire prepaid cards.</p>
+        </div>
+        <!-- Travel Cards -->
+        <div class="visual-card" onclick="redirectTo('travel_cards_page.html')">
+            <h3>Travel Cards</h3>
+            <p>Get travel cards for your journeys.</p>
+        </div>
+        <!-- Contactless Cards -->
+        <div class="visual-card" onclick="redirectTo('contactless_cards_page.html')">
+            <h3>Contactless Cards</h3>
+            <p>Find and purchase contactless cards.</p>
+        </div>
     </div>
-
-    <!-- Ethereum (ETH) Crypto Wallet -->
-    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('Ethereum')">
-        <h3>Ethereum (ETH)</h3>
-    </div>
-
-    <!-- Litecoin (LTC) Crypto Wallet -->
-    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('Litecoin')">
-        <h3>Litecoin (LTC)</h3>
-    </div>
-
-    <!-- USD Tether (USDT) Crypto Wallet -->
-    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('USDT')">
-        <h3>USD Tether (USDT)</h3>
-    </div>
-
-    <!-- Cardano (ADA) Crypto Wallet -->
-    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('Cardano')">
-        <h3>Cardano (ADA)</h3>
-    </div>
-
-    <!-- Dogecoin (DOGE) Crypto Wallet -->
-    <div class="crypto-wallet" onclick="redirectToCryptoWalletPage('Dogecoin')">
-        <h3>Dogecoin (DOGE)</h3>
-    </div>
-</div>
 
 <!-- Additional Services -->
 <section class="additional-services">
